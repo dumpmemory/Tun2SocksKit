@@ -20,7 +20,7 @@ jobs:
           path: 'temp'
       - uses: actions/checkout@v3
         with:
-          repository: 'daemooon/hev-socks5-tunnel-iphonesimulator'
+          repository: 'arror/hev-socks5-tunnel-iphonesimulator'
           path: 'fake'
           
       - name: build macos arm64_x86_64
