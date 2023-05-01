@@ -53,7 +53,35 @@ jobs:
           cd ../macos_arm64_x86_64
           lipo -create -o ./libhev-socks5-tunnel.a ./macos_arm64/libhev-socks5-tunnel.a ./macos_x86_64/libhev-socks5-tunnel.a
 
-          
+      - name: build maccatalyst arm64_x86_64
+        run: |
+          mkdir maccatalyst_arm64_x86_64
+          mkdir maccatalyst_arm64_x86_64/maccatalyst_arm64
+          mkdir maccatalyst_arm64_x86_64/maccatalyst_x86_64
+          cd temp
+          make clean
+          make PP=g++ \
+               CC=gcc \
+               CFLAGS="-arch x86_64 -target x86_64-apple-ios13.0-macabi -miphoneos-version-min=13.0" \
+               LFLAGS="-arch x86_64 -target x86_64-apple-ios13.0-macabi -miphoneos-version-min=13.0 -Wl,-Bsymbolic-functions" static
+          libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_x86_64/libhev-socks5-tunnel.a \
+                  bin/libhev-socks5-tunnel.a \
+                  third-part/lwip/bin/liblwip.a \
+                  third-part/yaml/bin/libyaml.a \
+                  third-part/hev-task-system/bin/libhev-task-system.a
+          make clean
+          make PP=g++ \
+               CC=gcc \
+               CFLAGS="-arch arm64 -target arm64-apple-ios13.0-macabi -miphoneos-version-min=13.0" \
+               LFLAGS="-arch arm64 -target arm64-apple-ios13.0-macabi -miphoneos-version-min=13.0 -Wl,-Bsymbolic-functions" static
+          libtool -static -o ../maccatalyst_arm64_x86_64/maccatalyst_arm64/libhev-socks5-tunnel.a \
+                  bin/libhev-socks5-tunnel.a \
+                  third-part/lwip/bin/liblwip.a \
+                  third-part/yaml/bin/libyaml.a \
+                  third-part/hev-task-system/bin/libhev-task-system.a
+          cd ../maccatalyst_arm64_x86_64
+          lipo -create -o ./libhev-socks5-tunnel.a ./maccatalyst_arm64/libhev-socks5-tunnel.a ./maccatalyst_x86_64/libhev-socks5-tunnel.a
+
       - name: build iphoneos arm64
         run: |
           mkdir iphoneos_arm64
@@ -103,6 +131,8 @@ jobs:
                      -library ./iphonesimulator_arm64_x86_64/libhev-socks5-tunnel.a \
                      -headers ./include \
                      -library ./macos_arm64_x86_64/libhev-socks5-tunnel.a \
+                     -headers ./include \
+                     -library ./maccatalyst_arm64_x86_64/libhev-socks5-tunnel.a \
                      -headers ./include \
                      -output ./HevSocks5Tunnel.xcframework
           zip -r HevSocks5Tunnel.xcframework.zip HevSocks5Tunnel.xcframework
