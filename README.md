@@ -4,7 +4,7 @@
 
 ### 重要变更
 
-> `2.4.0` 支持maccatalyst（arm64、x86_64）
+> `2.4.0` 支持maccatalyst（arm64、x86_64）by [@hossinasaadi](https://github.com/hossinasaadi)
 
 > `2.2.1` 支持macOS（arm64、x86_64）
 
