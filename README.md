@@ -4,15 +4,17 @@
 
 ### 重要变更
 
-> 从 `2.2.1` 开始，支持macOS（arm64、x86_64）
+> `2.4.0` 支持maccatalyst（arm64、x86_64）
 
-> ~~从 `2.2.0` 开始，支持macOS（arm64、x86_64）~~
+> `2.2.1` 支持macOS（arm64、x86_64）
 
-> 从 `2.1.16` 开始，支持iPhone模拟器，[hev-socks5-tunnel-iphonesimulator](https://github.com/daemooon/hev-socks5-tunnel-iphonesimulator)实现
+> ~~`2.2.0` 支持macOS（arm64、x86_64）~~
 
-> ~~从 `2.1.10` 开始，支持arm64的模拟器架构~~
+> `2.1.16` 支持iPhone模拟器，[hev-socks5-tunnel-iphonesimulator](https://github.com/daemooon/hev-socks5-tunnel-iphonesimulator)实现
 
-> 从 `2.0.1` 开始，使用[hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel)替换[leaf](https://github.com/eycorsican/leaf)实现
+> ~~`2.1.10` 支持arm64的模拟器~~
+
+> `2.0.1` 使用[hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel)替换[leaf](https://github.com/eycorsican/leaf)实现
 
 
 ### 使用
