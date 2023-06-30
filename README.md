@@ -1,5 +1,9 @@
 # Tun2SocksKit
 
+[![Downloads][0]][1]
+[0]: https://img.shields.io/github/downloads/arror/Tun2SocksKit/total.svg
+[1]: https://github.com/arror/Tun2SocksKit/releases/latest
+
 ⚠️⚠️⚠️不保证每个版本都可用，请自行[Fork](https://github.com/daemooon/Tun2SocksKit/fork)发布⚠️⚠️⚠️
 
 ### 重要变更
